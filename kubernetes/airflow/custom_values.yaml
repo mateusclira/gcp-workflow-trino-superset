@@ -1565,13 +1565,13 @@ dags:
     # should be "" if dags are at repo root
     subPath: "dags"
     # apiVersion: v1
-    kind: Secret
-    metadata:
-      name: git-credentials
-    data:
-      GIT_SYNC_USERNAME: bWF0ZXVzYy5saXJhQGdtYWlsLmNvbQo=
-      GIT_SYNC_PASSWORD: bWNsMipURVVTCg==    
-    credentialsSecret: git-credentials
+    # kind: Secret
+    # metadata:
+    #   name: git-credentials
+    # data:
+    #   GIT_SYNC_USERNAME: .
+    #   GIT_SYNC_PASSWORD: .    
+    # credentialsSecret: git-credentials
     #
     #
     # If you are using an ssh clone url, you can load
