@@ -22,10 +22,10 @@ spec:
   type: Python
   pythonVersion: "3"
   mode: cluster
-  image: "gcr.io/ynli-k8s/spark:v2.3.0-gcs" 
+  image: "mateusclira/spark-operator-gcp:latest"
   imagePullPolicy: Always
   mainApplicationFile: gs://mateus-codigos-pyspark/enem_agrega_notas.py
-  sparkVersion: "2.3.0"
+  sparkVersion: "1.5.2"
   restartPolicy:
     type: Never
   driver:
@@ -33,7 +33,7 @@ spec:
     coreLimit: "1200m"
     memory: "8g"
     labels:
-      version: 2.3.0
+      version: 1.5.2
     serviceAccount: airflow-worker
     volumeMounts:
       - name: ivy
@@ -43,7 +43,7 @@ spec:
     instances: 3
     memory: "8g"
     labels:
-      version: 3.0.0
+      version: 1.5.2
     volumeMounts:
       - name: ivy
         mountPath: /tmp
