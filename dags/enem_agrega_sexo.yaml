@@ -22,10 +22,10 @@ spec:
   type: Python
   pythonVersion: "3"
   mode: cluster
-  image: "mateusclira/spark-operator-gcp:latest"
+  image: "mesosphere/spark-operator:3.1.1-1.1.17"
   imagePullPolicy: Always
   mainApplicationFile: gs://mateus-codigos-pyspark/enem_agrega_sexo.py
-  sparkVersion: "1.5.2"
+  sparkVersion: "3.1.1"
   restartPolicy:
     type: Never
   driver:
@@ -33,7 +33,7 @@ spec:
     coreLimit: "1200m"
     memory: "8g"
     labels:
-      version: 1.5.2
+      version: 3.1.1
     serviceAccount: airflow-worker
     volumeMounts:
       - name: ivy
@@ -43,7 +43,7 @@ spec:
     instances: 3
     memory: "8g"
     labels:
-      version: 1.5.2
+      version: 3.1.1
     volumeMounts:
       - name: ivy
         mountPath: /tmp
