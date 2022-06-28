@@ -1,7 +1,7 @@
 from pyspark import SparkContext, SparkConf
 from pyspark.sql import SparkSession
 
-# set conf
+#set conf
 conf = (
 SparkConf()
     .set("google.cloud.auth.service.account.enable", "true")
@@ -9,7 +9,6 @@ SparkConf()
     .set("spark.hadoop.fs.gs.project.id", "igti-edc-mod4")
 )
 
-# apply config
 sc = SparkContext(conf=conf).getOrCreate()
     
 
@@ -22,13 +21,6 @@ if __name__ == "__main__":
             .getOrCreate()
 
     spark.sparkContext.setLogLevel("WARN")
-
-    uf_estado = (
-        spark
-        .read
-        .format("parquet")
-        .load("gs://mateus-processing-zone/intermediarias/uf_estado/")
-    )
 
     uf_sexo = (
         spark
@@ -49,9 +41,8 @@ if __name__ == "__main__":
     print("****************")
 
     uf_final = (
-        uf_estado
-        .join(uf_sexo, on="SG_UF_RESIDENCIA", how="inner")
-        .join(uf_notas, on="SG_UF_RESIDENCIA", how="inner")
+        uf_sexo
+        .join(uf_notas, on="NO_MUNICIPIO_PROVA", how="inner")
     )
 
     (

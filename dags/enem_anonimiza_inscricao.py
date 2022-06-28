@@ -2,7 +2,6 @@ from pyspark import SparkContext, SparkConf
 from pyspark.sql import SparkSession
 from pyspark.sql.functions import col, lit, concat, substring
 
-# set conf
 conf = (
 SparkConf()
     .set("google.cloud.auth.service.account.enable", "true")
@@ -36,7 +35,7 @@ if __name__ == "__main__":
         .withColumn("inscricao_string", df.NU_INSCRICAO.cast("string"))
         .withColumn("inscricao_menor", substring(col("inscricao_string"), 5, 4))
         .withColumn("inscricao_oculta", concat(lit("*****"), col("inscricao_menor"), lit("***")))
-        .select("NU_INSCRICAO", "inscricao_oculta", "NU_NOTA_MT", "SG_UF_RESIDENCIA")
+        .select("NU_INSCRICAO", "inscricao_oculta", "NU_NOTA_MT", "NO_MUNICIPIO_PROVA")
     )
 
     (
@@ -52,4 +51,3 @@ if __name__ == "__main__":
     print("*********************")
 
     spark.stop()
-    

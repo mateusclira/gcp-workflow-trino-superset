@@ -34,18 +34,18 @@ if __name__ == "__main__":
     uf_m = (
         df
         .where("TP_SEXO = 'M'")
-        .groupBy("SG_UF_RESIDENCIA")
+        .groupBy("NO_MUNICIPIO_PROVA")
         .agg(count(col("TP_SEXO")).alias("count_m"))
     )
 
     uf_f = (
         df
         .where("TP_SEXO = 'F'")
-        .groupBy("SG_UF_RESIDENCIA")
+        .groupBy("NO_MUNICIPIO_PROVA")
         .agg(count(col("TP_SEXO")).alias("count_f"))
     )
 
-    uf_sexo = uf_m.join(uf_f, on="SG_UF_RESIDENCIA", how="inner")
+    uf_sexo = uf_m.join(uf_f, on="NO_MUNICIPIO_PROVA", how="inner")
 
     (
         uf_sexo
