@@ -9,7 +9,7 @@ spec:
       emptyDir: {}
   sparkConf:
     spark.kubernetes.allocation.batch.size: "10"
-    google.cloud.auth.service.account.email: "s@gmail.com"
+    google.cloud.auth.service.account.email: "mateusc.lira@gmail.com"
     spark.hadoop.fs.gs.project.id: "igti-edc-mod4"
   hadoopConf:
     "fs.gs.project.id": "igti-edc-mod4"

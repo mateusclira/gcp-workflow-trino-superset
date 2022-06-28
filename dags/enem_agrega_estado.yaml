@@ -1,7 +1,7 @@
 apiVersion: "sparkoperator.k8s.io/v1beta2"
 kind: SparkApplication
 metadata:
-  name: spark-enem-idade
+  name: spark-enem-estado
   namespace: airflow
 spec:
   volumes:
@@ -11,7 +11,7 @@ spec:
       name:
   sparkConf:
     spark.kubernetes.allocation.batch.size: "10"
-    google.cloud.auth.service.account.email: "s@gmail.com"
+    google.cloud.auth.service.account.email: "mateusc.lira@gmail.com"
     spark.hadoop.fs.gs.project.id: "igti-edc-mod4"
   hadoopConf:
     "fs.gs.project.id": "igti-edc-mod4"
@@ -24,7 +24,7 @@ spec:
   mode: cluster
   image: "mesosphere/spark-operator:3.1.1-1.1.17"
   imagePullPolicy: Always
-  mainApplicationFile: gs://mateus-codigos-pyspark/enem_agrega_idade.py
+  mainApplicationFile: gs://mateus-codigos-pyspark/enem_agrega_estado.py
   sparkVersion: "3.1.1"
   restartPolicy:
     type: Never

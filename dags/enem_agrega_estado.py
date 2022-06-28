@@ -6,7 +6,7 @@ from pyspark.sql.functions import mean
 conf = (
 SparkConf()
     .set("google.cloud.auth.service.account.enable", "true")
-    .set("google.cloud.auth.service.account.email", "s@gmail.com")
+    .set("google.cloud.auth.service.account.email", "mateusc.lira@gmail.com")
     .set("spark.hadoop.fs.gs.project.id", "igti-edc-mod4")
 )   
 
@@ -28,21 +28,21 @@ if __name__ == "__main__":
     )
     
     print("****************")
-    print("* AGREGA IDADE *")
+    print("* AGREGA POR ESTADO *")
     print("****************")
 
-    uf_idade = (
+    uf_estado = (
         df
         .groupBy("SG_UF_RESIDENCIA")
-        .agg(mean(df.NU_IDADE).alias("med_nu_idade"))
+        .agg(mean(df.SG_UF_ESC).alias("estado"))
     )
 
     (
-        uf_idade
+        uf_estado
         .write
         .mode("overwrite")
         .format("parquet")
-        .save("gs://mateus-processing-zone/intermediarias/uf_idade/")
+        .save("gs://mateus-processing-zone/intermediarias/uf_estado/")
     )
 
     print("*********************")

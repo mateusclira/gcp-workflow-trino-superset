@@ -5,7 +5,7 @@ from pyspark.sql import SparkSession
 conf = (
 SparkConf()
     .set("google.cloud.auth.service.account.enable", "true")
-    .set("google.cloud.auth.service.account.email", "@gmail.com")
+    .set("google.cloud.auth.service.account.email", "mateusc.lira@gmail.com")
     .set("spark.hadoop.fs.gs.project.id", "igti-edc-mod4")
 )
 
@@ -23,11 +23,11 @@ if __name__ == "__main__":
 
     spark.sparkContext.setLogLevel("WARN")
 
-    uf_idade = (
+    uf_estado = (
         spark
         .read
         .format("parquet")
-        .load("gs://mateus-processing-zone/intermediarias/uf_idade/")
+        .load("gs://mateus-processing-zone/intermediarias/uf_estado/")
     )
 
     uf_sexo = (
@@ -49,7 +49,7 @@ if __name__ == "__main__":
     print("****************")
 
     uf_final = (
-        uf_idade
+        uf_estado
         .join(uf_sexo, on="SG_UF_RESIDENCIA", how="inner")
         .join(uf_notas, on="SG_UF_RESIDENCIA", how="inner")
     )

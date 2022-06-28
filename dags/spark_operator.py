@@ -57,18 +57,18 @@ with DAG(
     )
 
 
-    agrega_idade = SparkKubernetesOperator(
-        task_id='agrega_idade',
+    agrega_estado = SparkKubernetesOperator(
+        task_id='agrega_estado',
         namespace="airflow",
-        application_file="enem_agrega_idade.yaml",
+        application_file="enem_agrega_estado.yaml",
         kubernetes_conn_id="kubernetes_default",
         do_xcom_push=True,
     )
 
-    agrega_idade_monitor = SparkKubernetesSensor(
-        task_id='agrega_idade_monitor',
+    agrega_estado_monitor = SparkKubernetesSensor(
+        task_id='agrega_estado_monitor',
         namespace="airflow",
-        application_name="spark-enem-idade",
+        application_name="spark-enem-estado",
         kubernetes_conn_id="kubernetes_default",
     )
 
@@ -119,10 +119,10 @@ with DAG(
 
 
 converte_parquet >> converte_parquet_monitor >> anonimiza_inscricao >> anonimiza_inscricao_monitor
-converte_parquet_monitor >> agrega_idade >> agrega_idade_monitor
+converte_parquet_monitor >> agrega_estado >> agrega_estado_monitor
 converte_parquet_monitor >> agrega_sexo >> agrega_sexo_monitor
 converte_parquet_monitor >> agrega_notas >> agrega_notas_monitor
-[agrega_idade_monitor, agrega_sexo_monitor, agrega_notas_monitor] >> join_final >> join_final_monitor
+[agrega_estado_monitor, agrega_sexo_monitor, agrega_notas_monitor] >> join_final >> join_final_monitor
 join_final_monitor
-[agrega_idade_monitor, agrega_notas_monitor] >> agrega_sexo
-[agrega_idade_monitor, agrega_notas_monitor] >> anonimiza_inscricao
+[agrega_estado_monitor, agrega_notas_monitor] >> agrega_sexo
+[agrega_estado_monitor, agrega_notas_monitor] >> anonimiza_inscricao

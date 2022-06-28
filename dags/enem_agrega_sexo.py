@@ -6,7 +6,7 @@ from pyspark.sql.functions import count, col
 conf = (
 SparkConf()
     .set("google.cloud.auth.service.account.enable", "true")
-    .set("google.cloud.auth.service.account.email", "s@gmail.com")
+    .set("google.cloud.auth.service.account.email", "mateusc.lira@gmail.com")
     .set("spark.hadoop.fs.gs.project.id", "igti-edc-mod4")
 )   
 
