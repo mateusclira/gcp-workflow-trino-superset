@@ -14,7 +14,7 @@ spec:
     "fs.gs.system.bucket": "igti-edc-mod4-gs://mateus-processing-zone"
     "fs.gs.system.bucket": "igti-edc-mod4-gs://gs://mateus-serving-zone"
     "google.cloud.auth.service.account.enable": "true"
-    "google.cloud.auth.service.account.json.keyfile": "C:\\Users\\Micro\\Downloads\\mateusclira.json"
+    "google.cloud.auth.service.account.json.keyfile": "./mateusclira.json"
   type: Python
   pythonVersion: "3"
   mode: cluster 
