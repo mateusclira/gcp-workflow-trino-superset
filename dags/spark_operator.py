@@ -10,8 +10,6 @@ from airflow.models.taskinstance import TaskInstance
 from airflow.utils.dates import days_ago
 
 
-
-
 with DAG(
     'enem_batch_spark_k8s',
     default_args={
