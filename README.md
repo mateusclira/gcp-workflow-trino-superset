@@ -5,7 +5,7 @@
 
 ## <p align= "center">  Aqui podemos observar a camada de consumo dos dados, a primeira forma na qual podemos extrair insights a partir dos dados. </p>
 
-![img2](images/dbeaver.png)
+![img2](images/dbeaver_image.png)
 
 ## <p align= "center">  Aqui podemos observar também a camada de consumo dos dados, no formato de visualização de dados. A forma mais prática na qual podemos extrair insights a partir dos dados. </p>
 
