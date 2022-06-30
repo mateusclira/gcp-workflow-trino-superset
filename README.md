@@ -1,5 +1,6 @@
-# <p align= "center">  Repositório com transformações ETL e Agregação utilizando a base de dados do ENEM 2020  
+# <p align= "center">  Repositório com transformações ETL e Agregação utilizando a base de dados do ENEM 2020  <p>
 
+## <p align= "center"> O vídeo abaixo explica o workflow e seus principais componentes.  <p>
 
 [![GCP-Workflow](https://github.com/mateusclira/edc-desafio-final/blob/main/images/Arquitetura.JPG)](https://www.youtube.com/watch?v=GGHIs4OSQGM "Engenharia de dados - Workflow na GCP")
 
